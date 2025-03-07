@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
         if(MusicController.instance){
         MusicController.SetMusic(gameTheme);
         }
-        return;
+        
         #endif
          MusicController.SetMusic(gameTheme);
     }

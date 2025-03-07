@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 2730427007
     locked: 0
+  - name: Deco
+    uniqueID: 1677905941
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
