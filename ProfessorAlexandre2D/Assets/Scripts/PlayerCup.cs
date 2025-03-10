@@ -17,14 +17,10 @@ public class PlayerCup : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        if(transform.position.x > minX.position.x && transform.position.x < maxX.position.x)
-        {
+        
             rb.velocity = new Vector2(horizontal, 0) * speed;
 
-        }else
-        {
-            rb.velocity = Vector2.zero;
-        }
-        // transform.position = colocar o clamp
+         float newXPos = Mathf.Clamp(transform.position.x,minX.transform.position.x, maxX.transform.position.x);
+         transform.position = new Vector2(newXPos, transform.position.y);
     }
 }
