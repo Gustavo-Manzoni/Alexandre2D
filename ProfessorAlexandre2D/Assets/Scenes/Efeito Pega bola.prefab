@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3681487738571355868}
   - component: {fileID: 3681487738571355871}
   - component: {fileID: 3681487738571355870}
+  - component: {fileID: 4027194266118517990}
   m_Layer: 0
   m_Name: Efeito Pega bola
   m_TagString: Untagged
@@ -4871,3 +4872,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4027194266118517990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681487738571355809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef1202c1f598b242b40dbd883dcf260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 1

@@ -21,25 +21,25 @@ public class CameraController : MonoBehaviour
     {
         float pastCorroutineSize = Camera.main.orthographicSize;
         float elapsed = 0;
-        targetSize = pastCorroutineSize - targetSize;
+        targetSize = pastCorroutineSize + targetSize;
         while(elapsed < shakeDuration/2)
         {
 
-            Camera.main.orthographicSize = Mathf.Lerp(pastCorroutineSize, targetSize, elapsed / shakeDuration /2);
+            Camera.main.orthographicSize = Mathf.Lerp(pastCorroutineSize, targetSize, elapsed / shakeDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-        Camera.main.orthographicSize = targetSize;
+         Camera.main.orthographicSize = targetSize;
         elapsed = 0;
         pastCorroutineSize = targetSize;
-        while (elapsed < shakeDuration / 2)
+        while (elapsed < shakeDuration/2)
         {
 
-            Camera.main.orthographicSize = Mathf.Lerp(pastCorroutineSize, starterSize, elapsed / shakeDuration / 2);
+            Camera.main.orthographicSize = Mathf.Lerp(pastCorroutineSize, starterSize, elapsed / shakeDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-        Camera.main.orthographicSize = starterSize;
-
+         Camera.main.orthographicSize = starterSize;
+ 
     }
 }

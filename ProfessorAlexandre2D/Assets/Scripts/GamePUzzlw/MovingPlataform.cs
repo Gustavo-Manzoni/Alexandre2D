@@ -10,6 +10,7 @@ public class MovingPlataform : MonoBehaviour
     [SerializeField] float speed;
     bool usingTransforms;
      Vector3 target;
+    bool canMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,14 @@ public class MovingPlataform : MonoBehaviour
 
     // Update is called once per frame
   void FixedUpdate()
-  {
+  {if(!canMove) return;
 
     transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.fixedDeltaTime);
   }
    void Update()
    {
-     
+     if(!canMove) return;
+
         if(Vector2.Distance(transform.position, target) < 0.4f)
         {
             if(usingTransforms)
@@ -63,5 +65,10 @@ public class MovingPlataform : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null);
+    }
+    public void ChangeState(bool state)
+    {
+canMove = state;
+
     }
 }

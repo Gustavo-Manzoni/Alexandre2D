@@ -7,6 +7,7 @@ public class PlayerCup : MonoBehaviour
     [SerializeField] Transform minX, maxX;
      [SerializeField] float speed;
     Rigidbody2D rb;
+    [SerializeField] GameObject walkEffectParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class PlayerCup : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        
+        walkEffectParticle.SetActive(horizontal != 0 ? true : false);
             rb.velocity = new Vector2(horizontal, 0) * speed;
 
          float newXPos = Mathf.Clamp(transform.position.x,minX.transform.position.x, maxX.transform.position.x);
