@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator anim;
     [SerializeField] float speedX;
     [SerializeField] float jumpStrength;
-    //[SerializeField] float swimStrength;
-    bool groundCheck;
-    float horizontal;
+    bool lookingRight;
+     float horizontal;
     [SerializeField] Transform foot;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()// fisica
@@ -26,29 +26,42 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        groundCheck = Physics2D.OverlapCircle(foot.position, 0.1f );
-         horizontal = Input.GetAxisRaw("Horizontal"); 
-         if(Input.GetButtonDown("Jump") && groundCheck)
-         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-             rb.AddForce(new Vector2(0, jumpStrength * 100));
-         }   
-        //   if(Input.GetButtonDown("Fire3"))
-        //  {
-        //      rb.AddForce(new Vector2(0, swimStrength * -100));
-        //  }   
 
+       horizontal = Input.GetAxisRaw("Horizontal"); 
+        bool groundCheck = Physics2D.OverlapCircle(foot.position, 0.1f );
     
 
 
+         anim.SetInteger("Speed", (int)horizontal);
+         anim.SetBool("OnGround", groundCheck);
 
-
+          if(Input.GetButtonDown("Jump") && groundCheck)
+         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+             rb.AddForce(new Vector2(0, jumpStrength * 100));
+            
+         }   
+    
+        Flip();
 
     }
     void LateUpdate()
     {
         //camera 
     
+    }
+    void Flip()
+    {
+        if(lookingRight && horizontal < 0 || !lookingRight && horizontal > 0)
+        {
+            lookingRight = !lookingRight;
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+
+
+        }
+
     }
 
     
