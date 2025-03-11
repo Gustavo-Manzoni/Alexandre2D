@@ -33,9 +33,11 @@ public class WindManager : MonoBehaviour
         yield return new WaitForSeconds(cooldownToChangeState);
         cooldownToChangeState = Random.Range(minCooldown, maxCooldown);
 
-
-
-        state = Random.Range(0,4);
+        int lastState = state;
+        while(state == lastState)
+        {
+             state = Random.Range(0,4);
+        }
         switch(state)
         {
             case 0:
@@ -56,7 +58,7 @@ public class WindManager : MonoBehaviour
 
             break;
         }
-      //  areaEffector2D.forceMagnitude = Random.Range(minForce, maxForce);
+       areaEffector2D.forceMagnitude = Random.Range(minForce, maxForce);
 
 
 
