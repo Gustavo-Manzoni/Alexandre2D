@@ -8,8 +8,8 @@ public class MovingPlataform : MonoBehaviour
     [Space]
     [SerializeField] float xA, yA, xB, yB;
     [SerializeField] float speed;
-    bool usingTransforms;
-     Vector3 target;
+    [SerializeField]bool usingTransforms;
+    [SerializeField] Vector3 target;
     bool canMove;
     // Start is called before the first frame update
     void Start()
