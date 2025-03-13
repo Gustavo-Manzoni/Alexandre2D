@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 293313253}
-  sceneName: Level3
+  sceneName: Menu
 --- !u!1001 &958176442
 PrefabInstance:
   m_ObjectHideFlags: 0

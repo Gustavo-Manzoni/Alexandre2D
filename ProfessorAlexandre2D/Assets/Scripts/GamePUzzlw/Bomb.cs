@@ -43,6 +43,7 @@ Explosion();
         Instantiate(explosionCollider, transform.position, transform.rotation);
         Destroy(gameObject);
         CameraController cameraController = FindObjectOfType<CameraController>();
+        cameraController.StartCoroutine(cameraController.Shake(0.3f, 0.4f));
     }
     void OnCollisionStay2D(Collision2D collision)
     {
