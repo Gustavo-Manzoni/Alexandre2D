@@ -14,7 +14,7 @@ public class CompositeManager : MonoBehaviour
     }
     public void UpdateCompositeText()
     {
-        compositesLeftTxt.text = "BlocosRestantes: " + compositesLeft.ToString();
+        compositesLeftTxt.text = "Blocos Restantes: " + compositesLeft.ToString();
 
     }
     // Update is called once per frame
