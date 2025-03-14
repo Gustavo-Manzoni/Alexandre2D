@@ -12,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
     bool lookingRight;
      float horizontal;
     [SerializeField] Transform foot;
+    PlayerSounds playerSounds;
+    bool canPlayTouchGroundSfx;
     void Start()
     {
+        canPlayTouchGroundSfx = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerSounds = GetComponent<PlayerSounds>();
     }
 
     void FixedUpdate()// fisica
@@ -36,12 +40,18 @@ public class PlayerMovement : MonoBehaviour
 
          anim.SetInteger("Speed", (int)horizontal);
          anim.SetBool("OnGround", groundCheck);
+if(rb.velocity.y < -2f && groundCheck &&canPlayTouchGroundSfx)
+{
+    playerSounds.PlaySound(playerSounds.touchGroundSfx, 0.9f);
+    canPlayTouchGroundSfx = false;
+    StartCoroutine(ResetSfxCooldown());
+}
 
           if(Input.GetButtonDown("Jump") && groundCheck)
          {
             rb.velocity = new Vector2(rb.velocity.x, 0);
              rb.AddForce(new Vector2(0, jumpStrength * 100));
-            
+            playerSounds.PlaySound(playerSounds.jumpSfx, 0.35f);
          }   
     
         Flip();
@@ -73,6 +83,12 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
+
+    }
+    IEnumerator ResetSfxCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canPlayTouchGroundSfx = true;
 
     }
     

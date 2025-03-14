@@ -5,16 +5,20 @@ using UnityEngine;
 public class Bomb : MonoBehaviour, IInteractable
 {
     [SerializeField] float secondsToExplode;
-    [SerializeField] GameObject explosion, explosionCollider;
-    [SerializeField] GameObject prompt;
+    [SerializeField] GameObject explosion, explosionCollider, bombExplosionSound;
+    [SerializeField]public  GameObject prompt;
     Rigidbody2D rb;
     [SerializeField] float maxSpeed;
     Animator anim;
+    AudioSource audioSource;
+    [SerializeField] AudioClip startExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     rb = GetComponent<Rigidbody2D>();
+    audioSource = GetComponent<AudioSource>();
 
         prompt.SetActive(false);
     }
@@ -33,6 +37,7 @@ StartCoroutine(StartExplosion());
     {
        
         anim.SetBool("Explode", true);
+        audioSource.PlayOneShot(startExplosion);
          yield return new WaitForSeconds(secondsToExplode);
 Explosion();
     }
@@ -41,6 +46,7 @@ Explosion();
 
         Instantiate(explosion, transform.position, Quaternion.Euler(0,0,0));
         Instantiate(explosionCollider, transform.position, transform.rotation);
+        Instantiate(bombExplosionSound, transform.position, transform.rotation);
         Destroy(gameObject);
         CameraController cameraController = FindObjectOfType<CameraController>();
         cameraController.StartCoroutine(cameraController.Shake(0.3f, 0.4f));

@@ -35,6 +35,12 @@ canInteract = true;
 
             door.prompt.SetActive(true);
         }
+         if(collision.TryGetComponent(out Bomb bomb))
+        {
+
+
+            bomb.prompt.SetActive(true);
+        }
 
 
 
@@ -54,6 +60,13 @@ if(collision.TryGetComponent(out Door door))
 
             door.prompt.SetActive(false);
         }
+         if(collision.TryGetComponent(out Bomb bomb))
+        {
+
+
+            bomb.prompt.SetActive(false);
+        }
+
 
     }
 }

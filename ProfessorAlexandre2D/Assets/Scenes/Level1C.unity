@@ -664,7 +664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "n\xE3o soube como escrever "
+  m_text: "N\xE3o soube como escrever "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a7a09fd357b5fe4da42e80565c972e3, type: 2}
   m_sharedMaterial: {fileID: -6012121457263844086, guid: 5a7a09fd357b5fe4da42e80565c972e3, type: 2}
@@ -1181,7 +1181,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6104,7 +6104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Segure e solte o botao esquerdo do mouse para criar um composite(?)
+  m_text: "Segure e solte o bot\xE3o esquerdo do mouse para criar um composite(?)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a7a09fd357b5fe4da42e80565c972e3, type: 2}
   m_sharedMaterial: {fileID: -6012121457263844086, guid: 5a7a09fd357b5fe4da42e80565c972e3, type: 2}
