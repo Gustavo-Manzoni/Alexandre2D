@@ -10,6 +10,8 @@ TagManager:
   - Area
   - FundoCopo
   - Block
+  - Composites
+  - Lose
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - NotMagnet
   - PlayerInteraction
   - Button
-  - 
+  - Ground
   - 
   - 
   - 
