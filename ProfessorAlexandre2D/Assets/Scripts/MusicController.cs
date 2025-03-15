@@ -20,11 +20,24 @@ public class MusicController : MonoBehaviour
 
           DontDestroyOnLoad(gameObject);
     }
-    public static void SetMusic(AudioClip music)
+    public static IEnumerator SetMusic(AudioClip music, float timeToChangeMusic)
     {
-        if(audioSource.clip != music){
+        float starterVolume = audioSource.volume;
+        float elapsed = 0;
+        while(elapsed < timeToChangeMusic )
+        {
+            audioSource.volume = Mathf.Lerp(starterVolume, 0, elapsed / timeToChangeMusic);
+            elapsed+= Time.deltaTime;
+            yield return null;
+        }
         audioSource.clip = music;
         audioSource.Play();
+        elapsed = 0;
+        while(elapsed < timeToChangeMusic )
+        {
+            audioSource.volume = Mathf.Lerp(0, 1,elapsed / timeToChangeMusic    );
+           elapsed+= Time.deltaTime;
+            yield return null; 
         }
 
     }
