@@ -29,6 +29,8 @@ public class Ball : MonoBehaviour
         
           cameraController.shakeCorroutine = cameraController.StartCoroutine(cameraController.Shake(0.3f, 0.4f));
           sanidadeManager.sanidade += Random.Range(3, 7);
+          sanidadeManager.PlayCoinSound();
+
         }
 
     }

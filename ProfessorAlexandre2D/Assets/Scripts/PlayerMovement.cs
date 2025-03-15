@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
          anim.SetBool("OnGround", groundCheck);
 if(rb.velocity.y < -2f && groundCheck &&canPlayTouchGroundSfx)
 {
-    playerSounds.PlaySound(playerSounds.touchGroundSfx, 0.9f);
+    playerSounds.PlaySound(playerSounds.touchGroundSfx, 0.75f);
     canPlayTouchGroundSfx = false;
     StartCoroutine(ResetSfxCooldown());
 }

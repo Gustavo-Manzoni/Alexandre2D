@@ -6192,10 +6192,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sword_man
       objectReference: {fileID: 0}
-    - target: {fileID: 2231320035882175296, guid: 7cab298c37c52904bbb0bd92a254922d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.533
-      objectReference: {fileID: 0}
     - target: {fileID: 2232035946083069526, guid: 7cab298c37c52904bbb0bd92a254922d, type: 3}
       propertyPath: m_RootOrder
       value: 1
