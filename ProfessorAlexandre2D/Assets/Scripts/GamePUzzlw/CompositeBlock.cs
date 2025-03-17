@@ -18,7 +18,7 @@ public class CompositeBlock : MonoBehaviour
             multiplier *= -1;
         }
         transform.localScale = transform.localScale + 
-        new Vector3(0.02f, 0.02f) * multiplier;
+        new Vector3(0.07f, 0.07f) * multiplier;
         if(maxScale.magnitude < transform.localScale.magnitude)
         {
 
@@ -29,7 +29,7 @@ public class CompositeBlock : MonoBehaviour
 
             goingUp = true;
         }
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(0.00001f);
         StartCoroutine(Start());
     }
 
